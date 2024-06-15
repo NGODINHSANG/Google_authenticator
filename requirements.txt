@@ -1,0 +1,7 @@
+kivy
+kivymd 
+pyotp 
+qrcode
+pillow 
+pyzbar
+opencv-python
