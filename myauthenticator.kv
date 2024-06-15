@@ -1,0 +1,68 @@
+<MyAuthenticator>:
+    orientation: 'vertical'
+    BoxLayout:
+        size_hint_y: None
+        height: '48dp'
+        Button:
+            text: 'Add Account'
+            on_release: root.show_add_account_popup()
+        Button:
+            text: 'Scan QR'
+            on_release: root.show_scan_qr_popup()
+    ScrollView:
+        id: accounts_scroll
+        BoxLayout:
+            id: accounts_list
+            orientation: 'vertical'
+            size_hint_y: None
+            height: self.minimum_height
+
+<AddAccountPopup>:
+    title: 'Add Account'
+    size_hint: 0.9, 0.5
+    auto_dismiss: False
+    BoxLayout:
+        orientation: 'vertical'
+        padding: '10dp'
+        spacing: '10dp'
+        TextInput:
+            id: email_input
+            hint_text: 'Email'
+        TextInput:
+            id: service_input
+            hint_text: 'Service'
+        Button:
+            text: 'Add'
+            on_release: root.add_account()
+        Button:
+            text: 'Cancel'
+            on_release: root.dismiss()
+
+<ScanQrPopup>:
+    title: 'Scan QR Code'
+    size_hint: 0.9, 0.9
+    auto_dismiss: False
+    BoxLayout:
+        orientation: 'vertical'
+        Image:
+            id: qr_image
+        Button:
+            text: 'Cancel'
+            size_hint_y: None
+            height: '48dp'
+            on_release: root.dismiss()
+
+<AccountItem>:
+    size_hint_y: None
+    height: '80dp'
+    BoxLayout:
+        orientation: 'vertical'
+        Label:
+            id: email_label
+            text: ''
+        Label:
+            id: service_label
+            text: ''
+        Label:
+            id: otp_label
+            text: ''
